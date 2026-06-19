@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/velonetics/lura/v2/core"
+	"github.com/pucora/lura/v2/core"
 	"golang.org/x/mod/semver"
 )
 

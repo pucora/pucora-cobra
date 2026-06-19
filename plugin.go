@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/velonetics/velonetics-cobra/v2/plugin"
+	"github.com/pucora/velonetics-cobra/v2/plugin"
 	"github.com/spf13/cobra"
 	"golang.org/x/mod/modfile"
 )

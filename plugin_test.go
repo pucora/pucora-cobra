@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/velonetics/velonetics-cobra/v2/plugin"
+	"github.com/pucora/velonetics-cobra/v2/plugin"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/require"
 )

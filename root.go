@@ -3,8 +3,8 @@ package cmd
 import (
 	"os"
 
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/core"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/core"
 	"github.com/mattn/go-isatty"
 	"github.com/spf13/cobra"
 )
@@ -44,8 +44,8 @@ var (
 	AuditCommand   Command
 
 	rootCmd = &cobra.Command{
-		Use:   "velonetics",
-		Short: "Velonetics is a high-performance API gateway that helps you publish, secure, control, and monitor your services",
+		Use:   "pucora",
+		Short: "Pucora is a high-performance API gateway that helps you publish, secure, control, and monitor your services",
 	}
 
 	checkCmd = &cobra.Command{
@@ -54,15 +54,15 @@ var (
 		Long:    "Validates that the active configuration file has a valid syntax to run the service.\nChange the configuration file by using the --config flag",
 		Run:     checkFunc,
 		Aliases: []string{"validate"},
-		Example: "velonetics check -d -l -c config.json",
+		Example: "pucora check -d -l -c config.json",
 	}
 
 	runCmd = &cobra.Command{
 		Use:     "run",
-		Short:   "Runs the Velonetics server.",
-		Long:    "Runs the Velonetics server.",
+		Short:   "Runs the Pucora server.",
+		Long:    "Runs the Pucora server.",
 		Run:     runFunc,
-		Example: "velonetics run -d -c config.json",
+		Example: "pucora run -d -c config.json",
 	}
 
 	pluginCmd = &cobra.Command{
@@ -70,23 +70,23 @@ var (
 		Short:   "Checks your plugin dependencies are compatible.",
 		Long:    "Checks your plugin dependencies are compatible and proposes commands to update your dependencies.",
 		Run:     pluginFunc,
-		Example: "velonetics check-plugin -g 1.19.0 -s ./go.sum -f",
+		Example: "pucora check-plugin -g 1.19.0 -s ./go.sum -f",
 	}
 
 	versionCmd = &cobra.Command{
 		Use:     "version",
-		Short:   "Shows Velonetics version.",
-		Long:    "Shows Velonetics version.",
+		Short:   "Shows Pucora version.",
+		Long:    "Shows Pucora version.",
 		Run:     versionFunc,
-		Example: "velonetics version",
+		Example: "pucora version",
 	}
 
 	auditCmd = &cobra.Command{
 		Use:     "audit",
-		Short:   "Audits a Velonetics configuration.",
-		Long:    "Audits a Velonetics configuration.",
+		Short:   "Audits a Pucora configuration.",
+		Long:    "Audits a Pucora configuration.",
 		Run:     auditFunc,
-		Example: "velonetics audit -i 1.1.1,1.1.2 -s CRITICAL -c velonetics.json",
+		Example: "pucora audit -i 1.1.1,1.1.2 -s CRITICAL -c pucora.json",
 	}
 )
 
@@ -94,14 +94,14 @@ func init() {
 	cfgFlag := StringFlagBuilder(&cfgFile, "config", "c", "", "Path to the configuration file")
 	debugFlag := CountFlagBuilder(&debug, "debug", "d", "Enables the debug endpoint")
 	RootCommand = NewCommand(rootCmd)
-	RootCommand.Cmd.SetHelpTemplate(logoBanner + "Version: " + core.VeloneticsVersion + "\n\n" + rootCmd.HelpTemplate())
+	RootCommand.Cmd.SetHelpTemplate(logoBanner + "Version: " + core.PucoraVersion + "\n\n" + rootCmd.HelpTemplate())
 
 	ginRoutesFlag := BoolFlagBuilder(&checkGinRoutes, "test-gin-routes", "t", false, "Tests the endpoint patterns against a real gin router on the selected port")
 	prefixFlag := StringFlagBuilder(&checkDumpPrefix, "indent", "i", checkDumpPrefix, "Indentation of the check dump")
-	lintCurrentSchemaFlag := BoolFlagBuilder(&lintCurrentSchema, "lint", "l", lintCurrentSchema, "Enables the linting against the official Velonetics online JSON schema")
+	lintCurrentSchemaFlag := BoolFlagBuilder(&lintCurrentSchema, "lint", "l", lintCurrentSchema, "Enables the linting against the official Pucora online JSON schema")
 	lintCustomSchemaFlag := StringFlagBuilder(&lintCustomSchemaPath, "lint-schema", "s", lintCustomSchemaPath, "Lint against a custom schema path or URL")
-	lintNoNetworkFlag := BoolFlagBuilder(&lintNoNetwork, "lint-no-network", "n", lintNoNetwork, "Lint against the builtin Velonetics JSON schema, no network is required")
-	checkDebugFlag := CountFlagBuilder(&checkDebug, "debug", "d", "Information about how Velonetics is interpreting your configuration file")
+	lintNoNetworkFlag := BoolFlagBuilder(&lintNoNetwork, "lint-no-network", "n", lintNoNetwork, "Lint against the builtin Pucora JSON schema, no network is required")
+	checkDebugFlag := CountFlagBuilder(&checkDebug, "debug", "d", "Information about how Pucora is interpreting your configuration file")
 	CheckCommand = NewCommand(checkCmd, cfgFlag, checkDebugFlag, ginRoutesFlag, prefixFlag, lintCurrentSchemaFlag, lintCustomSchemaFlag, lintNoNetworkFlag)
 	CheckCommand.AddConstraint(MutuallyExclusive("lint", "lint-no-network", "lint-schema"))
 
@@ -126,7 +126,7 @@ func init() {
 	DefaultRoot = NewRoot(RootCommand, CheckCommand, RunCommand, PluginCommand, VersionCommand, AuditCommand)
 }
 
-const logoBanner = `  velonetics
+const logoBanner = `  pucora
   API Gateway
 
 `

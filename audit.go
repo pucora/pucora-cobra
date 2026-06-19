@@ -7,7 +7,7 @@ import (
 	"strings"
 	"text/template"
 
-	audit "github.com/velonetics/velonetics-audit"
+	audit "github.com/pucora/velonetics-audit"
 	"github.com/spf13/cobra"
 )
 

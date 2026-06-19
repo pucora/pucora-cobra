@@ -1,5 +1,5 @@
 // Package cmd defines the cobra command structs and an execution method for adding an improved CLI to
-// Velonetics based api gateways
+// Pucora based api gateways
 package cmd
 
 import (
@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/velonetics/lura/v2/config"
+	"github.com/pucora/lura/v2/config"
 	"github.com/spf13/cobra"
 )
 

@@ -10,20 +10,20 @@ import (
 	"strings"
 	"time"
 
-	"github.com/velonetics/velonetics-cobra/v2/dumper"
+	"github.com/pucora/velonetics-cobra/v2/dumper"
 	"github.com/santhosh-tekuri/jsonschema/v6"
 
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/core"
-	"github.com/velonetics/lura/v2/logging"
-	"github.com/velonetics/lura/v2/proxy"
-	veloneticsgin "github.com/velonetics/lura/v2/router/gin"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/core"
+	"github.com/pucora/lura/v2/logging"
+	"github.com/pucora/lura/v2/proxy"
+	veloneticsgin "github.com/pucora/lura/v2/router/gin"
 
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/cobra"
 )
 
-var SchemaURL = "https://velonetics.io/schema/v%s/velonetics.json"
+var SchemaURL = "https://pucora.io/schema/v%s/pucora.json"
 
 func errorMsg(content string) string {
 	if !IsTTY {
@@ -108,7 +108,7 @@ func checkFunc(cmd *cobra.Command, _ []string) { // skipcq: GO-R1005
 			sch, compilationErr = compiler.Compile("schema.json")
 		} else {
 			if lintCustomSchemaPath == "" {
-				lintCustomSchemaPath = fmt.Sprintf(SchemaURL, getVersionMinor(core.VeloneticsVersion))
+				lintCustomSchemaPath = fmt.Sprintf(SchemaURL, getVersionMinor(core.PucoraVersion))
 			}
 
 			httpLoader := SchemaHttpLoader(http.Client{

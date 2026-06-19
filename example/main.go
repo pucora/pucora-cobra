@@ -3,12 +3,12 @@ package main
 import (
 	"os"
 
-	cmd "github.com/velonetics/velonetics-cobra/v2"
-	koanf "github.com/velonetics/velonetics-koanf"
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/logging"
-	"github.com/velonetics/lura/v2/proxy"
-	"github.com/velonetics/lura/v2/router/gin"
+	cmd "github.com/pucora/velonetics-cobra/v2"
+	koanf "github.com/pucora/velonetics-koanf"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/logging"
+	"github.com/pucora/lura/v2/proxy"
+	"github.com/pucora/lura/v2/router/gin"
 )
 
 func main() {

@@ -1,10 +1,10 @@
-Velonetics Cobra
+Pucora Cobra
 ====
 
-An adapter of the [cobra](http://github.com/spf13/cobra) lib for the [Velonetics](http://velonetics.io) framework
+An adapter of the [cobra](http://github.com/spf13/cobra) lib for the [Pucora](http://pucora.io) framework
 
 Package cmd defines the cobra command structs and an execution method for adding an improved CLI to
-Velonetics based api gateways
+Pucora based api gateways
 
 ## Basic example
 
@@ -14,12 +14,12 @@ package main
 import (
 	"os"
 
-	"github.com/velonetics/velonetics-cobra/v2"
-	"github.com/velonetics/velonetics-viper/v2"
-	"github.com/velonetics/lura/v2/config"
-	"github.com/velonetics/lura/v2/logging"
-	"github.com/velonetics/lura/v2/proxy"
-	veloneticsgin "github.com/velonetics/lura/v2/router/gin"
+	"github.com/pucora/velonetics-cobra/v2"
+	"github.com/pucora/velonetics-viper/v2"
+	"github.com/pucora/lura/v2/config"
+	"github.com/pucora/lura/v2/logging"
+	"github.com/pucora/lura/v2/proxy"
+	veloneticsgin "github.com/pucora/lura/v2/router/gin"
 )
 
 func main() {
@@ -42,7 +42,7 @@ The `cmd` package includes four commands: `check`, `check-plugin`, `help` and `r
 4. *run* executes the passed executor once the received flags overwrite the parsed config.
 
 ```
-$ ./velonetics
+$ ./pucora
  ╓▄█                          ▄▄▌                               ╓██████▄µ
 ▐███  ▄███╨▐███▄██H╗██████▄  ║██▌ ,▄███╨ ▄██████▄  ▓██▌█████▄  ███▀╙╙▀▀███╕
 ▐███▄███▀  ▐█████▀"╙▀▀"╙▀███ ║███▄███┘  ███▀""▀███ ████▀╙▀███H ███     ╙███
@@ -55,17 +55,17 @@ Version: undefined
 The API Gateway builder
 
 Usage:
-  velonetics [command]
+  pucora [command]
 
 Available Commands:
   check        Validates that the configuration file is valid.
   check-plugin Checks your plugin dependencies are compatible.
   help         Help about any command
-  run          Runs the Velonetics server.
+  run          Runs the Pucora server.
 
 Flags:
-  -h, --help   help for velonetics
+  -h, --help   help for pucora
 
-Use "velonetics [command] --help" for more information about a command.
+Use "pucora [command] --help" for more information about a command.
 
 ```
